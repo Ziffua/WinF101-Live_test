@@ -192,6 +192,7 @@
             this.btonEsittir.TabIndex = 12;
             this.btonEsittir.Text = "=";
             this.btonEsittir.UseVisualStyleBackColor = true;
+            this.btonEsittir.Click += new System.EventHandler(this.IslemOgren);
             // 
             // btonTopla
             // 
@@ -213,6 +214,7 @@
             this.btonCikart.TabIndex = 14;
             this.btonCikart.Text = "-";
             this.btonCikart.UseVisualStyleBackColor = true;
+            this.btonCikart.Click += new System.EventHandler(this.IslemOgren);
             // 
             // btonCarp
             // 
@@ -223,6 +225,7 @@
             this.btonCarp.TabIndex = 15;
             this.btonCarp.Text = "*";
             this.btonCarp.UseVisualStyleBackColor = true;
+            this.btonCarp.Click += new System.EventHandler(this.IslemOgren);
             // 
             // btonBol
             // 
@@ -233,6 +236,7 @@
             this.btonBol.TabIndex = 16;
             this.btonBol.Text = "/";
             this.btonBol.UseVisualStyleBackColor = true;
+            this.btonBol.Click += new System.EventHandler(this.IslemOgren);
             // 
             // btonCE
             // 

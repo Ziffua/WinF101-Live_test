@@ -82,20 +82,13 @@ namespace P10_HesMak
             // Buraya + - * / butonlarıyla geliniyor. hangisi acaba?
             string islemkod = "+-*/";
             Button button = (Button)sender; // Basılmış olan butonu öğrendim.
-
-            if (islemkod.IndexOf(button.Text) != -1) // butonun text in de yukardaki karakterlerden biri varmı
-            {
-                islem = button.Text; // basılan butonun texti
-                // demek bir işlem yapılacak
-                islemsec = true;
-            }
-
+           
             //if ((sayisec && sayi1 == 0))
             if ((sayi1 == 0))
             {
                 sayi1 = Convert.ToInt32(tboxSonuc.Text);
 
-                tboxHistory.Text = sayi1.ToString() + " " + islem;
+                tboxHistory.Text = sayi1.ToString();
                 
             }
             //else if (sayisec && sayi2==0)
@@ -103,7 +96,7 @@ namespace P10_HesMak
             {
                 sayi2 = Convert.ToInt32(tboxSonuc.Text);
 
-                tboxHistory.Text= tboxHistory.Text + sayi2.ToString() + " " + islem;
+                tboxHistory.Text= tboxHistory.Text + " " + islem + " " +  sayi2.ToString();
 
                 //sayi1 ve sayi2 yi burlara kadar aldı öğrendi..işlemlere baslama zamanı
 
@@ -133,9 +126,17 @@ namespace P10_HesMak
                 sayi1 = sonuc;
                 sayi2 = 0;
             }
-            
 
-
+            if (islemkod.IndexOf(button.Text) != -1) // butonun text in de yukardaki karakterlerden biri varmı
+            {
+                islem = button.Text; // basılan butonun texti
+                // demek bir işlem yapılacak
+                islemsec = true;
+            }
+            else if(button.Text=="=")
+            {
+                tboxHistory.Text = tboxHistory.Text + " = " + sonuc;
+            }
         }
 
 
