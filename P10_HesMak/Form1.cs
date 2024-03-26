@@ -65,9 +65,10 @@ namespace P10_HesMak
 
             Button button = (Button)sender; // hangi butondan gelindiğini anlayabilmek için...Text özelliği ile mesela
 
-            if (tboxSonuc.Text == "0" || islemsec)
+            if (tboxSonuc.Text == "0" || sayisec)
             {
                 tboxSonuc.Text = button.Text;
+                sayisec = false;
             }
             else
             {
@@ -80,31 +81,31 @@ namespace P10_HesMak
         {
             // Buraya + - * / butonlarıyla geliniyor. hangisi acaba?
             string islemkod = "+-*/";
-
-
             Button button = (Button)sender; // Basılmış olan butonu öğrendim.
 
             if (islemkod.IndexOf(button.Text) != -1) // butonun text in de yukardaki karakterlerden biri varmı
             {
                 islem = button.Text; // basılan butonun texti
                 // demek bir işlem yapılacak
-                islemsec = true;
+                //islemsec = true;
             }
 
-            if ((sayisec && sayi1 == 0))
+            //if ((sayisec && sayi1 == 0))
+            if ((sayi1 == 0))
             {
                 sayi1 = Convert.ToInt32(tboxSonuc.Text);
 
                 tboxHistory.Text = sayi1.ToString() + " " + islem;
+                sayisec = true;
             }
-            else if (sayisec && sayi2==0)
+            //else if (sayisec && sayi2==0)
+            else if (sayi2==0)
             {
-                sayi2 = Convert.ToInt32(tboxSonuc);
+                sayi2 = Convert.ToInt32(tboxSonuc.Text);
 
                 tboxHistory.Text= tboxHistory.Text + sayi2.ToString() + " " + islem;
 
-                // sayi1 ve sayi2 yi burlara kadar aldı öğrendi..
-                // işlemlere baslama zamanı
+                //sayi1 ve sayi2 yi burlara kadar aldı öğrendi..işlemlere baslama zamanı
 
                 switch (islem)
                 {
@@ -113,33 +114,31 @@ namespace P10_HesMak
                         break;
 
                     case "-":
-                        sonuc= sayi1 - sayi2;
+                        sonuc = sayi1 - sayi2;
                         break;
 
                     case "*":
-                        sonuc= sayi1 * sayi2;
+                        sonuc = sayi1 * sayi2;
                         break;
 
                     case "/":
-                        sonuc=sayi1 / sayi2;
+                        sonuc = sayi1 / sayi2;
                         break;
                     default:
                         break;
                 }
 
                 tboxSonuc.Text = sonuc.ToString();
-
-
-
-
-
+                sayisec = true;
+                sayi1 = sonuc;
+                sayi2 = 0;
             }
+            
 
 
         }
 
+
         #endregion
-
-
     }
 }
