@@ -65,10 +65,10 @@ namespace P10_HesMak
 
             Button button = (Button)sender; // hangi butondan gelindiğini anlayabilmek için...Text özelliği ile mesela
 
-            if (tboxSonuc.Text == "0" || sayisec)
+            if (tboxSonuc.Text == "0" || islemsec)
             {
                 tboxSonuc.Text = button.Text;
-                sayisec = false;
+                islemsec = false;
             }
             else
             {
@@ -87,7 +87,7 @@ namespace P10_HesMak
             {
                 islem = button.Text; // basılan butonun texti
                 // demek bir işlem yapılacak
-                //islemsec = true;
+                islemsec = true;
             }
 
             //if ((sayisec && sayi1 == 0))
@@ -96,7 +96,7 @@ namespace P10_HesMak
                 sayi1 = Convert.ToInt32(tboxSonuc.Text);
 
                 tboxHistory.Text = sayi1.ToString() + " " + islem;
-                sayisec = true;
+                
             }
             //else if (sayisec && sayi2==0)
             else if (sayi2==0)
@@ -129,7 +129,7 @@ namespace P10_HesMak
                 }
 
                 tboxSonuc.Text = sonuc.ToString();
-                sayisec = true;
+                
                 sayi1 = sonuc;
                 sayi2 = 0;
             }
